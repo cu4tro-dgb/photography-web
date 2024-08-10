@@ -1,0 +1,47 @@
+<h1 class="text-[5vw] select-none">
+  <div class="word leading-[0.85] overflow-hidden relative uppercase">
+    <span>Pablo</span>
+  </div>
+  <div
+    class="word leading-[0.85] overflow-hidden relative uppercase font-light"
+  >
+    <span class="font-['Octobre'] italic">Gonzales</span>
+  </div>
+  <div class="word leading-[0.85] overflow-hidden relative uppercase">
+    <div class="words">
+      <span>Comercial</span>
+      <div class="flex flex-col absolute">
+        <span>Lifestyle</span>
+        <span>Food</span>
+        <span>Sportswear</span>
+        <span>Interior</span>
+        <span>Comercial</span>
+      </div>
+    </div>
+  </div>
+  <div class="word leading-[0.85] relative uppercase">
+    <span class="font-['Octobre'] italic">Photographer</span>
+  </div>
+</h1>
+
+<script>
+  import gsap from 'gsap'
+
+  const timeline = gsap.timeline({
+    repeat: -1,
+    defaults: {
+      duration: 0.5,
+      delay: 1
+    }
+  })
+
+  const words = document.querySelector('.words div')
+  const totalWords = words?.children.length || 0
+
+  for (let i = 0; i < totalWords; i++) {
+    timeline.to('.words', {
+      yPercent: '-=100'
+    })
+  }
+
+</script>

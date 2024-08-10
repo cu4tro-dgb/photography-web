@@ -1,0 +1,20 @@
+---
+interface Props {
+  href: string
+  hover: string
+  name: string
+}
+
+const { name, href, hover } = Astro.props
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener"
+  data-magnet="middle"
+  class="block overflow-hidden relative uppercase group"
+>
+  <span class="pe-2 block before:[content:attr(data-hover)] before:italic before:font-['Octobre'] before:absolute before:top-full group-hover:-translate-y-full transition-transform duration-700" data-hover={hover}>{name}</span>
+  <!-- <span class="pe-2 hidden">ig</span> -->
+</a>

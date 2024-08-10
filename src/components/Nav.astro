@@ -1,0 +1,57 @@
+<nav
+  class="flex items-center justify-between fixed top-[3.75vw] right-[3.75vw] mix-blend-difference text-white w-[51vw] text-lg uppercase z-[3]"
+>
+  <div class="flex-1 text-start">
+    <div
+      class="number absolute right-[100%] w-[4vw] overflow-hidden pointer-events-none"
+    >
+      <div class="number-slider-track relative translate-y-full">
+        <div class="" data-number-current="">04</div>
+        <div class="absolute" data-number-next="">04</div>
+      </div>
+    </div>
+    <div class="title overflow-hidden pointer-events-none">
+      <div class="title-slider-track relative translate-y-full">
+        <div data-title-current="">cantina bellavista</div>
+        <div class="absolute" data-title-next="">cantina bellavista</div>
+      </div>
+    </div>
+  </div>
+  <div class="nav-menu overflow-hidden cursor-pointer" data-magnet="scale">
+    <div class="relative transition-transform duration-500">
+      <div>&nbsp;&nbsp;menu</div>
+      <div class="absolute">Close</div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  import gsap from 'gsap'
+
+  let menuIsOpen = false
+  const menu = document.querySelector('.nav-menu') as HTMLElement
+  menu.addEventListener('click', () => {
+    menu.children[0].classList.toggle('-translate-y-full')
+    if (!menuIsOpen) {
+      gsap.to('.menu', {
+        xPercent: 0,
+        ease: 'expo.out',
+        duration: 2
+      })
+      menuIsOpen = true
+    } else {
+      gsap.to('.menu', {
+        xPercent: 100,
+        ease: 'expo.inOut',
+        duration: 2
+      })
+      menuIsOpen = false
+    }
+  })
+
+  // Funcionamiento: data-number
+  // Al hacer scroll cambia el data-number-next, si es data-number-current es 4 el data-number-next cambia a 5
+  // Le hace un translateY de -100% al padre
+  // Se le modifica el data-number-current al data-number-next, si se hices el translate entonces el data-number-current cambia 5
+  // Si se hizo todos los pasos el translateY(0%) al padre
+</script>

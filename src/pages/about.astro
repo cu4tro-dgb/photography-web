@@ -1,0 +1,133 @@
+---
+import NameHobbie from '../components/NameHobbie.astro'
+import Layout from '../layouts/Layout.astro'
+import CommentText from '../components/about/CommentText.astro'
+import CommentPhoto from '../components/about/CommentPhoto.astro'
+---
+
+<Layout title="About">
+  <div
+    class="as flex flex-row items-end h-screen py-[3.75vw] pe-[3.75vw] ps-[7.75vw] flex-nowrap"
+  >
+    <!-- One section -->
+    <NameHobbie />
+    <!-- Second section -->
+    <div class="flex items-end ps-[10vw]">
+      <div class="overflow-hidden -mb-[3.75vw] relative flex">
+        <div>
+          <img
+            class="h-screen max-w-none w-auto"
+            src="/images/1.jpg"
+            alt="profile"
+          />
+        </div>
+      </div>
+    </div>
+    <!-- Third section -->
+    <CommentText addClass="ps-[10vw] pt-[10vw]">
+      <p>
+        Sono fatto di materia<br />eterogenea.<br />Amo l’arte, la fotografia,<br
+        />le immagini, la musica,<br />il bello, il design,<br />la pittura.
+      </p>
+    </CommentText>
+    <!-- Four section -->
+    <CommentPhoto
+      photoWrapper="items-end"
+      width="w-[17.917vw]"
+      url="/images/2.jpg"
+      alt="profile"
+    >
+      <CommentText slot="primary">
+        <p>
+          Mi piace il colore,<br />mescolarlo, studiarlo,<br />capirlo,
+          abbinarlo.
+        </p>
+      </CommentText>
+    </CommentPhoto>
+    <!-- Five section -->
+    <CommentPhoto
+      photoContent="-mt-[3.75vw]"
+      width="w-[23.8vw]"
+      url="/images/2.jpg"
+      alt="profile"
+    >
+      <CommentText slot="secondary">
+        <p>Adoro il silenzio e<br />il suono del vento.</p>
+      </CommentText>
+    </CommentPhoto>
+    <!-- Six section -->
+    <CommentPhoto
+      photoWrapper="mt-[3.75vw] overflow-hidden"
+      photoContent="-mt-[3.75vw]"
+      width="w-[35.417vw]"
+      url="/images/2.jpg"
+      alt="profile"
+    >
+      <CommentText slot="primary">
+        <p>
+          Il mezzo e la tecnica<br />non contano.<br />Conta la visione,<br />i
+          processi interiori,<br />l’istinto.
+        </p>
+      </CommentText>
+    </CommentPhoto>
+    <!-- Seven section -->
+    <CommentText addClass="ps-[10vw] pt-[10vw]">
+      <p>
+        Estetica fine a se stessa<br />o estetica con un significato<br
+        />profondo. Senza paura,<br />osando. Sempre.
+      </p>
+    </CommentText>
+    <!-- Eight section -->
+    <CommentPhoto
+      photoWrapper="mt-[3.75vw] overflow-hidden"
+      width="w-[17.917vw]"
+      url="/images/2.jpg"
+      alt="profile"
+    >
+      <CommentText slot="primary">
+        <p>
+          Esprimo me estesso,<br />nonostante tutto,<br />nonostante gli altri.<br
+          />
+        </p>
+      </CommentText>
+    </CommentPhoto>
+    <!-- Nine section -->
+    <CommentPhoto
+      photoContent="-mt-[3.75vw]"
+      width="w-[23.8vw] md:h-[23.8vw] object-cover"
+      url="/images/2.jpg"
+      alt="profile"
+    >
+      <CommentText slot="secondary">
+        <p>
+          Non so se la Bellezza<br />salverà il mondo,<br />ma sicuramente<br
+          />ha salvato me.
+        </p>
+      </CommentText>
+    </CommentPhoto>
+  </div>
+</Layout>
+
+<script>
+  import { gsap } from 'gsap'
+  import ScrollTrigger from 'gsap/ScrollTrigger'
+
+  gsap.registerPlugin(ScrollTrigger)
+
+  const w = document.querySelector('.as')?.getBoundingClientRect()
+
+  const tl = gsap.timeline()
+
+  tl.to('.as', {
+    translateX: -((w?.width || 0) - window.innerWidth),
+    duration: 10
+    // scrollTrigger: {
+    //   trigger: '.as',
+    //   start: 'top top',
+    //   end: `${w?.width}`,
+    //   scrub: true,
+    //   pin: true,
+    //   pinSpacer: '.dag'
+    // }
+  })
+</script>

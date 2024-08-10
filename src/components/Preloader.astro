@@ -1,0 +1,83 @@
+<div
+  class="preloader bg-black text-white h-screen p-28 fixed w-full z-50 flex items-end justify-stretch"
+>
+  <h1 class="text-[5vw]">
+    <div
+      class="word leading-none overflow-hidden relative translate-x-[100vw] uppercase font-semibold"
+    >
+      <span>Pablo</span>
+    </div>
+    <div
+      class="word leading-none overflow-hidden relative translate-x-[100vw] uppercase font-light"
+    >
+      <span class="italic">Gonzales</span>
+    </div>
+    <div
+      class="word leading-none overflow-hidden relative translate-x-[100vw] uppercase font-semibold"
+    >
+      <div class="words">
+        <span>Comercial</span>
+        <div class="flex flex-col absolute">
+          <span>Lifestyle</span>
+          <span>Food</span>
+          <span>Sportswear</span>
+          <span>Interior</span>
+          <span>Comercial</span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="word leading-none relative translate-x-[100vw] uppercase font-light"
+    >
+      <span class="italic">Photographer</span>
+    </div>
+  </h1>
+</div>
+
+<script>
+  import gsap from 'gsap'
+
+  const easeAnimation = ['power4.out', 'power3.out', 'power2.out', 'power1.out']
+
+  const tl = gsap.timeline({
+    defaults: {
+      duration: 1
+    }
+  })
+
+  document.querySelectorAll('.word').forEach((w, i) => {
+    tl.to(
+      w,
+      {
+        duration: 1,
+        ease: easeAnimation[i],
+        x: 0
+      },
+      '0'
+    )
+      // .addLabel('delay', '>1.5')
+      .to('.words', {
+        yPercent: '-=100'
+      })
+  })
+
+  document.querySelectorAll('.word').forEach((w, i) => {
+    tl.to(
+      w,
+      {
+        ease: easeAnimation[i],
+        xPercent: -200,
+        delay: 0.1 * i
+      },
+      '5'
+    )
+  })
+
+  tl.to(
+    '.preloader',
+    {
+      xPercent: -100
+    },
+    '<0.1'
+  )
+</script>

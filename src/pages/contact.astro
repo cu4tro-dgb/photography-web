@@ -1,0 +1,160 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Button from '../components/Button.astro'
+---
+
+<Layout title="Contact">
+  <div
+    class="flex flex-col py-[3.75vw] pe-[3.75vw] ps-[7.5vw] min-h-screen text-xl uppercase font-light relative"
+  >
+    <div>
+      Pablo Gonzales
+      <br />
+      <a class="pointer-events-auto" href="tel:+51 926 875 351">T. 51 926 875 351</a>
+      <br />
+       .
+      <br />
+      <a
+        class="pointer-events-auto"
+        href="https://maps.app.goo.gl/U6dhxRfm7DESh3GL8"
+        data-magnet="middle"
+        target="_blank"
+      >
+        A.h Vista Alegre<br />
+         Santa Anita<br />
+         Lima . Peru</a
+      >
+      <br />
+       .
+      <br />
+       Graduated
+    </div>
+    <form id="contact-form" class="pt-[8.8vw] pb-[4.4vw]">
+      <div class="field">
+        <input
+          type="text"
+          class="w-full pointer-events-auto flex-1 uppercase"
+          id="name"
+          name="name"
+          data-value-missing="Complete the field name"
+          required
+          placeholder=""
+        />
+        <label for="name" class="pe-[0.3em]" data-magnet="middle"
+          >Name.</label
+        >
+        <p class="text-xs leading-none basis-full"></p>
+      </div>
+      <div class="field">
+        <input
+          type="text"
+          class="w-full pointer-events-auto flex-1 uppercase"
+          id="lastname"
+          name="lastname"
+          data-value-missing="Complete the field Lastname"
+          required
+          placeholder=""
+        />
+        <label
+          for="lastname"
+          class="pe-[0.3em] font-['Octobre'] italic"
+          data-magnet="middle">Lastname.</label
+        >
+        <p class="text-xs leading-none basis-full"></p>
+      </div>
+      <div class="field">
+        <input
+          type="text"
+          class="w-full pointer-events-auto flex-1 uppercase"
+          id="email"
+          name="email"
+          data-value-missing="Complete the field email"
+          required
+          placeholder=""
+        />
+        <label for="email" class="pe-[0.3em]" data-magnet="middle"
+          >Email.</label
+        >
+        <p class="text-xs leading-none basis-full"></p>
+      </div>
+      <div class="field">
+        <textarea
+          rows="1"
+          id="content"
+          name="content"
+          data-value-missing="Complete the field message"
+          required
+          placeholder=""></textarea>
+        <label
+          for="content"
+          class="pe-[0.3em] font-['Octobre'] italic absolute top-[.084em] left-0"
+          data-magnet="middle">Message.</label
+        >
+        <p class="text-xs leading-none basis-full"></p>
+      </div>
+      <div
+        class="flex justify-end py-[3.75vw] pe-[3.75vw] ps-[7.5vw] absolute left-0 bottom-0 right-0"
+      >
+        <Button />
+      </div>
+    </form>
+  </div>
+</Layout>
+
+<style>
+  .field {
+    font-size: 5.208vw;
+    position: relative;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    align-items: baseline;
+    display: flex;
+    line-height: 0.86;
+  }
+  .field input,
+  .field textarea {
+    border: none;
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    outline: none;
+    height: 1em;
+    text-transform: uppercase;
+    width: 100%;
+    flex: 1;
+    pointer-events: auto;
+  }
+
+  .field textarea {
+    resize: none;
+    overflow: hidden;
+    -webkit-appearance: none;
+    line-height: 1;
+    flex: auto;
+  }
+
+  input:not(:placeholder-shown) + label,
+  textarea:not(:placeholder-shown) + label {
+    color: #bbb;
+  }
+</style>
+
+<script>
+  // Sacar el ident del label y ver si cambia aumenta de row y luego hacer scroll a ello
+  const labelAssociated = document.querySelector(
+    'label[for="content"]'
+  ) as HTMLElement
+  const textareaSize = document.querySelector('#content') as HTMLTextAreaElement
+
+  const { offsetWidth, offsetHeight } = labelAssociated
+  document.addEventListener('DOMContentLoaded', () => {
+    textareaSize.style.textIndent = `${offsetWidth}px`
+  })
+
+  textareaSize.addEventListener('input', function () {
+    textareaSize.style.height = 'auto'
+    textareaSize.style.height = textareaSize.scrollHeight + 'px'
+    console.log(textareaSize.scrollHeight)
+  })
+</script>

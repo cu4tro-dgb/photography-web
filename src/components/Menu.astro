@@ -1,0 +1,56 @@
+---
+import NameHobbie from './NameHobbie.astro'
+import NavLink from './menu/NavLink.astro'
+import NavLinkTarger from './menu/NavLinkTarget.astro'
+---
+
+<div
+  class="menu flex flex-column justify-end sm:flex-row sm:justify-between fixed inset-0 z-[2] text-[hsla(0,0%,100%,.33)] bg-black pointer-events-auto pt-[9.375vw] pb-[6.785vw] px-[7.5vw]"
+>
+  <div class="flex items-end">
+    <NameHobbie />
+  </div>
+  <div class="text-[5.208vw] leading-[.86] ps-[8.021vw] flex-1">
+    <NavLink name="Portfolio" href="/" />
+    <NavLink name="About" href="/about" />
+    <NavLink name="Contact" href="/contact" />
+  </div>
+
+  <div
+    class="flex justify-between absolute pt-[60px] sm:pt-[0] overflow-hidden left-[7.5vw] right-[3.75vw] bottom-[2.91vw] text-[19px]"
+  >
+    <div class="flex-1">
+      <NavLinkTarger href="https://www.instagram.com/cu4tro.__/" name="Credits" hover="Saekaronw" />
+    </div>
+    <div class="flex flex-1 justify-between pt-0 ps-[4.271vw]">
+      <div class="flex">
+        <div>
+          <NavLinkTarger href="https://www.instagram.com/pablooo_escobarrrrrr/" name="Instagram" hover="Instagram" />
+        </div>
+        <div class="ps-[calc(1.25*1em)]">
+          <NavLinkTarger href="https://www.instagram.com/pablooo_escobarrrrrr/" name="Linkedin" hover="Linkedin" />
+        </div>
+        <div class="ps-[calc(1.25*1em)]">
+          <NavLinkTarger href="https://www.instagram.com/pablooo_escobarrrrrr/" name="Facebook" hover="Facebook" />
+        </div>
+      </div>
+      <div class="flex ps-[5.208vw] pt-0">
+        <div class="ps-[calc(1.25*1em)]">
+          <NavLinkTarger href="/" name="ESP" hover="ESP" />
+        </div>
+        <div class="ps-[calc(1.25*1em)]">
+          <NavLinkTarger href="/" name="ENG" hover="ENG" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  import gsap from 'gsap'
+  window.addEventListener('DOMContentLoaded', () => {
+    gsap.set('.menu', {
+      xPercent: 100
+    })
+  })
+</script>

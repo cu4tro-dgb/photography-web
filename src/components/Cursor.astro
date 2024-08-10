@@ -1,0 +1,29 @@
+<div
+  id="cursor"
+  class="h-[150px] w-[150px] rounded-full bg-white fixed mix-blend-difference -m-[75px] flex justify-center items-center pointer-events-none overflow-hidden z-20"
+>
+  <div id="cursor-text" class="text-lg opacity-0">Discover</div>
+</div>
+
+<script>
+  import { Cursoranime } from './animations/Cursor.ts'
+  import gsap from 'gsap'
+
+  document.addEventListener('DOMContentLoaded', () => {
+    Cursoranime.init({ container: '#cursor', text: '#cursor-text' })
+    document.addEventListener('mousemove', (event) => {
+      const { clientX, clientY } = event
+      gsap.to('#cursor', {
+        x: clientX,
+        y: clientY
+      })
+    })
+
+    const magnets = Array.from(document.querySelectorAll('[data-magnet]'))
+    magnets.forEach((magnet: HTMLElement) => {
+      magnet.addEventListener('mousemove', () => {
+        Cursoranime[magnet.dataset.magnet]({ container: '#cursor', text: '#cursor-text' })
+      })
+    })
+  })
+</script>

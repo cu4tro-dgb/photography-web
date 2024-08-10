@@ -1,0 +1,58 @@
+@font-face {
+  font-family: 'Octobre';
+  src: url('../font/octobre/Octobre-Light.otf');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Octobre';
+  src: url('../font/octobre/Octobre-LightItalic.otf');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Geist';
+  src: url('../font/geist/Geist-Thin.otf');
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: 'Geist';
+  src: url('../font/geist/Geist-Light.otf');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Geist';
+  src: url('../font/geist/Geist-Regular.otf');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Geist';
+  src: url('../font/geist/Geist-Medium.otf');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Geist';
+  src: url('../font/geist/Geist-SemiBold.otf');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Geist';
+  src: url('../font/geist/Geist-Bold.otf');
+  font-weight: 700;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+html {
+  font-family: 'Geist', sans-serif;
+  font-weight: 400;
+  background-color: #fff;
+}

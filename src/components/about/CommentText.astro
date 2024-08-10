@@ -1,0 +1,13 @@
+---
+interface Props {
+  addClass?: string
+}
+
+const { addClass } = Astro.props
+---
+
+<div
+  class={`text-[5.20vw] leading-[0.85] uppercase whitespace-nowrap ${addClass}`}
+>
+  <slot />
+</div>

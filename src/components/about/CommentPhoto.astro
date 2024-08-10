@@ -1,0 +1,23 @@
+---
+interface Props {
+  width?: string | '100%'
+  url: string
+  alt: string
+  photoWrapper?: string
+  photoContent?: string
+}
+
+const { width, url, alt, photoWrapper, photoContent } = Astro.props
+---
+
+<div class="flex flex-col ps-[10vw] justify-between h-[calc(100vh-7.5vw)]">
+  <slot name="primary" />
+  <div class={`flex ${photoWrapper}`}>
+    <div class={`overflow-hidden relative flex ${photoContent}`}>
+      <div>
+        <img class={width} src={url} alt={alt} />
+      </div>
+    </div>
+  </div>
+  <slot name="secondary" />
+</div>

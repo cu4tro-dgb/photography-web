@@ -1,0 +1,26 @@
+<div class="barba-transition flex justify-center items-center text-[7vw]">
+  <div
+    class="barba-transition-title flex flex-wrap justify-center items-center leading-[.85]"
+  >
+  </div>
+</div>
+
+<style>
+  .barba-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    color: white;
+    background-color: black;
+    z-index: 999;
+    padding: 0 6.666vw;
+    transform: translateX(100%);
+  }
+  .barba-transition-title > div + div {
+    /* Aplicando CSS desde el segundo div */
+    padding: 0 0.05em 0 0.3em;
+    will-change: transform;
+  }
+</style>
